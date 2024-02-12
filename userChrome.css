@@ -1,0 +1,597 @@
+/*
+█▀ █ █░░ █▀▀ █▄░█ ▀█▀ █▀▀ █▀█ ▀▄▀
+▄█ █ █▄▄ ██▄ █░▀█ ░█░ █▀░ █▄█ █░█
+
+Deeply inspired in Cascade, SimpleFox & more...
+*/
+
+/*---+---+---+---+---+---+---+
+ | C | O | L | O | U | R | S |
+ +---+---+---+---+---+---+---*/
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* These colours are (mainly) used by the
+     Container Tabs Plugin */
+    --uc-identity-colour-blue: #7ed6df;
+    --uc-identity-colour-turquoise: #55e6c1;
+    --uc-identity-colour-green: #b8e994;
+    --uc-identity-colour-yellow: #f7d794;
+    --uc-identity-colour-orange: #f19066;
+    --uc-identity-colour-red: #fc5c65;
+    --uc-identity-colour-pink: #f78fb3;
+    --uc-identity-colour-purple: #786fa6;
+
+    /*  Cascades main Colour Scheme */
+    --uc-base-colour: #1e2021;
+    --uc-highlight-colour: #191b1c;
+    --uc-inverted-colour: #fafafc;
+    --uc-muted-colour: #aaaaac;
+    --uc-accent-colour: var(--uc-identity-colour-purple);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* These colours are (mainly) used by the
+     Container Tabs Plugin */
+    --uc-identity-colour-blue: #1d65f5;
+    --uc-identity-colour-turquoise: #209fb5;
+    --uc-identity-colour-green: #40a02b;
+    --uc-identity-colour-yellow: #e49320;
+    --uc-identity-colour-orange: #fe640b;
+    --uc-identity-colour-red: #fc5c65;
+    --uc-identity-colour-pink: #ec83d0;
+    --uc-identity-colour-purple: #822fee;
+
+    /*  Cascades main Colour Scheme */
+    --uc-base-colour: #fafafc;
+    --uc-highlight-colour: #dadadc;
+    --uc-inverted-colour: #1e2021;
+    --uc-muted-colour: #191b1c;
+    --uc-accent-colour: var(--uc-identity-colour-purple);
+  }
+}
+
+:root {
+  --toolbar-field-focus-border-color: transparent !important;
+  --urlbar-background-color: #201929;
+}
+
+:root[privatebrowsingmode="temporary"] {
+  --urlbar-background-color: #25003e;
+}
+
+/*---+---+---+---+---+---+
+ | G | L | O | B | A | L |
+ +---+---+---+---+---+---*/
+
+:root {
+  /*  Global Border Radius
+   *  applied to ALL UI elements
+   */
+  --uc-border-radius: 0px;
+
+  /*  The distance the Statuspanel floats
+   *  away from the window border
+   *  0 places directly in the corner
+   */
+  --uc-status-panel-spacing: 12px;
+}
+
+/* remove window control buttons */
+.titlebar-buttonbox-container {
+  display: none !important;
+}
+
+#pageActionButton {
+  display: none !important;
+}
+
+#PanelUI-menu-button {
+  padding: 0px !important;
+}
+#PanelUI-menu-button .toolbarbutton-icon {
+  width: 1px !important;
+}
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+  padding: 0px !important;
+}
+
+/*---+---+---+---+---+---+---+
+ | T | O | O | L | B | A | R |
+ +---+---+---+---+---+---+---*/
+
+/*  Position of the Personal Toolbar
+ *  possible values:
+ *  0 – toolbar on top
+ *  4 – toolbar on bottom
+ */
+:root {
+  --uc-toolbar-position: 4;
+}
+
+/*  Darken the Personal Toolbar by X amount
+ *  where X = 1 means pure black
+ *  and X = 0 means no darkening at all
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --uc-darken-toolbar: 0.2;
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --uc-darken-toolbar: 0;
+  }
+}
+
+/*---+---+---+---+---+---+---+
+ | U | R | L | — | B | A | R |
+ +---+---+---+---+---+---+---*/
+
+:root {
+  /*  Width of the URL Bar for the Oneline layout
+   *  If enabled the max-width is applied on focus
+   *  otherwise the URL Bar will always be it's min-width
+   */
+  --uc-urlbar-min-width: 100vw;
+  --uc-urlbar-max-width: 100vw;
+
+  /*  Position of the URL Bar
+   *  possible values:
+   *  1 – tabs on the right
+   *  3 – tabs on the left
+   */
+  --uc-urlbar-position: 1;
+
+  /*  Firefox can be a little wonky with the vertical
+   *  URL Bar placement. Change this variable to adapt
+   *  to this when necessary.
+   */
+  --uc-urlbar-top-spacing: 1px;
+}
+
+/* Disable the Navigation Buttons */
+#back-button,
+#forward-button {
+  display: none !important;
+}
+
+/* Disables the Tracking Protection Shield */
+#tracking-protection-icon-container {
+  display: none !important;
+}
+
+/* Encryption and Permissions icons */
+/* Only hides permission items */
+#identity-permission-box {
+  display: none !important;
+}
+/* Hides encryption AND permission items */
+#identity-box {
+  display: none !important;
+}
+
+/* Hide everything BUT the zoom indicator within the URL Bar */
+/* #page-action-buttons > :not(#urlbar-zoom-button) { display: none !important; } */
+
+/* Hide the »Go«-arrow in the URL Bar */
+#urlbar-go-button {
+  display: none !important;
+}
+
+/* Hides the Extensions Menu Icon */
+#unified-extensions-button {
+  display: none !important;
+}
+
+#statuspanel #statuspanel-label {
+  margin: 0 0 var(--uc-status-panel-spacing) var(--uc-status-panel-spacing) !important;
+}
+
+/*---+---+---+---+---+---+---+
+| L | A | Y | O | U | U | T |
++---+---+---+---+---+---+---*/
+:root {
+  --toolbarbutton-border-radius: var(--uc-border-radius) !important;
+  --tab-border-radius: var(--uc-border-radius) !important;
+  --arrowpanel-border-radius: var(--uc-border-radius) !important;
+}
+
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+  box-shadow: none !important;
+}
+
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#PersonalToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+  border: none !important;
+}
+
+/* remove "padding" left and right from tabs */
+.titlebar-spacer {
+  display: none !important;
+}
+
+/* fix Shield Icon padding */
+#urlbar-input-container[pageproxystate="valid"]
+  > #tracking-protection-icon-container
+  > #tracking-protection-icon-box
+  > #tracking-protection-icon {
+  padding-bottom: 1px;
+}
+
+#PersonalToolbar {
+  padding: 6px !important;
+  box-shadow: inset 0 0 50vh rgba(0, 0, 0, var(--uc-darken-toolbar)) !important;
+}
+
+#statuspanel #statuspanel-label {
+  border: none !important;
+  border-radius: var(--uc-border-radius) !important;
+}
+
+/*---+---+---+---+---+---+---+
+| N | A | B | — | B | A | R |
++---+---+---+---+---+---+---*/
+
+#navigator-toolbox:not(:-moz-lwtheme) {
+  background: var(--toolbar-field-background-color) !important;
+}
+
+#nav-bar {
+  padding-block-start: 0px !important;
+
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+#urlbar,
+#urlbar * {
+  padding-block-start: var(--uc-urlbar-top-spacing) !important;
+
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#urlbar-background {
+  border: transparent !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background,
+#urlbar:not([open]) > #urlbar-background {
+  background: var(--toolbar-field-background-color) !important;
+}
+
+#urlbar[open] > #urlbar-background {
+  background: var(--toolbar-field-background-color) !important;
+}
+
+.urlbarView-row:hover > .urlbarView-row-inner,
+.urlbarView-row[selected] > .urlbarView-row-inner {
+  background: var(--toolbar-field-focus-background-color) !important;
+}
+
+.urlbar-icon,
+#urlbar-go-button {
+  margin: auto;
+}
+.urlbar-page-action {
+  padding: 0 inherit !important;
+}
+.urlbar-page-action .urlbar-icon {
+  margin-top: 6px !important;
+}
+
+/*---+---+---+---+---+---+---+---+---+---+
+| R | E | S | P | O | N | S | I | V | E |
++---+---+---+---+---+---+---+---+---+---*/
+@media (min-width: 1000px) {
+  #navigator-toolbox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  #nav-bar {
+    order: var(--uc-urlbar-position);
+    width: var(--uc-urlbar-min-width);
+  }
+
+  #nav-bar #urlbar-container {
+    min-width: 0px !important;
+    width: auto !important;
+  }
+
+  #titlebar {
+    order: 2;
+    width: calc(100vw - var(--uc-urlbar-min-width) - 1px);
+  }
+
+  #PersonalToolbar {
+    order: var(--uc-toolbar-position);
+    width: 100%;
+  }
+
+  #navigator-toolbox:focus-within #nav-bar {
+    width: var(--uc-urlbar-max-width);
+  }
+  #navigator-toolbox:focus-within #titlebar {
+    width: calc(100vw - var(--uc-urlbar-max-width) - 1px);
+  }
+}
+
+/*---+---+---+---+---+---+---+
+| T | A | B | — | B | A | R |
++---+---+---+---+---+---+---*/
+
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"])
+  #TabsToolbar
+  > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+  visibility: collapse !important;
+}
+
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"])
+  #TabsToolbar
+  .titlebar-spacer {
+  border-inline-end: none;
+}
+
+/* Moving Windows Control */
+
+#titlebar {
+  appearance: none !important;
+  height: 0px;
+}
+
+/* Page Actions Hide and Show on Hover */
+
+#page-action-buttons:not(:hover) .urlbar-page-action,
+#page-action-buttons:not(:hover) #star-button {
+  width: 0px !important;
+  min-width: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 10px !important;
+  margin-right: -15px !important;
+  transition: all 250ms ease-in-out;
+}
+
+#page-action-buttons:not(:hover) #userContext-indicator {
+  margin-right: 37px !important;
+  transition: all 250ms ease-in-out;
+}
+
+#page-action-buttons:hover .urlbar-page-action,
+#page-action-buttons:hover #star-button {
+  visibility: visible;
+  min-width: unset !important;
+}
+
+#page-action-buttons:hover #userContext-indicator {
+  margin-right: 0px !important;
+}
+
+#page-action-buttons::after {
+  content: "•••";
+  position: absolute;
+  margin-top: 0px;
+  font-size: 0.7em;
+  opacity: 0.5;
+  right: 6px;
+  transition: all 50ms ease-in-out;
+}
+
+#page-action-buttons:hover::after {
+  display: none !important;
+  width: 0px !important;
+  margin-left: 0px !important;
+  transition: all 50ms ease-in-out;
+}
+
+/*---+---+---+---+---+---+---+---+ 
+| S | I | D | E | — | B | A | R |
++---+---+---+---+---+---+---+---*/
+
+:root {
+  --wide-tab-width: 300px;
+  --thin-tab-width: 35px;
+  --sidebar-background: #1e2021;
+}
+
+#sidebar-box > #browser,
+#webextpanels-window {
+  background: var(--sidebar-background) !important;
+}
+
+/*Collapse in default state and add transition*/
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
+  border-right: none !important;
+  z-index: 2;
+  border-right: none !important;
+  width: 100% !important;
+  background: var(--sidebar-background);
+
+  /* lock sidebar to height by doing the inverse margin of the toolbar element */
+  z-index: 1000 !important;
+  position: relative !important;
+  margin-top: 0px !important;
+  border-right: none;
+  transition: all 200ms !important;
+
+  /* lock sidebar to specified width */
+  min-width: var(--thin-tab-width) !important;
+  max-width: var(--thin-tab-width) !important;
+  overflow: hidden !important;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-delay: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]::after {
+  background: #1c1b22 !important;
+  margin-left: 207px;
+  z-index: 9999999;
+  position: absolute;
+  content: " ";
+  width: 1px;
+  height: 100%;
+  top: 0;
+  right: 0px;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover:after {
+  top: 42px;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover,
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar:hover {
+  min-width: var(--wide-tab-width) !important;
+  max-width: var(--wide-tab-width) !important;
+  margin-right: calc(
+    (var(--wide-tab-width) - var(--thin-tab-width)) * -1
+  ) !important;
+  transition: all 200ms !important;
+}
+
+#sidebar-header {
+  border: none !important;
+  border-right: 1px solid var(--sidebar-border-color);
+  background: var(--sidebar-background) !important;
+}
+
+#sidebar-close,
+#sidebar-title,
+#sidebar-switcher-arrow {
+  display: none;
+  border: none;
+}
+
+#sidebar-switcher-target {
+  border: none !important;
+  margin-left: 4.5px !important;
+  padding-top: 4px !important;
+  padding-bottom: 6px !important;
+}
+
+#sidebar-switcher-target:focus-visible:not(:hover, [open]),
+#sidebar-close:focus-visible:not(:hover, [open]) {
+  outline: none !important;
+}
+
+.sidebar-splitter {
+  opacity: 0 !important;
+  width: 0px !important;
+  border: none !important;
+  --avatar-image-url: none !important;
+}
+
+#sidebarMenu-popup .subviewbutton {
+  min-width: 0px;
+  padding: 0;
+  margin: 0 !important;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  + #sidebar-splitter {
+  display: none !important;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar-header {
+  visibility: collapse;
+}
+
+/*---+---+---+---+---+---+---+---+
+| B | O | O | K | M | A | R | K |
++---+---+---+---+---+---+---+---*/
+
+/* Show bookmarks bar on hover */
+#PersonalToolbar {
+  --uc-bm-height: 24px;
+  /* Might need to adjust if the toolbar has other buttons */
+  --uc-bm-padding: 6px;
+  /* Vertical padding to be applied to bookmarks */
+  padding: 1px 6px !important;
+  position: relative !important;
+}
+
+:root[uidensity="touch"] #PersonalToolbar {
+  --uc-bm-padding: 6px;
+}
+
+#PersonalToolbar:not([customizing]) {
+  margin-bottom: calc(
+    2px - var(--uc-bm-height) - 2 * var(--uc-bm-padding)
+  ) !important;
+  transform: rotateX(90deg) !important;
+  transform-origin: top !important;
+  transition: transform 50ms linear 500ms !important;
+  z-index: 2 !important;
+}
+
+:root[BookmarksToolbarOverlapsBrowser] #PersonalToolbar:not([customizing]) {
+  margin-bottom: calc(
+    -1 * var(--bookmarks-toolbar-overlapping-browser-height)
+  ) !important;
+}
+
+#PlacesToolbarItems > .bookmark-item {
+  padding-block: var(--uc-bm-padding) !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item .toolbarbutton-icon {
+  transition: opacity 100ms linear 450ms !important;
+  opacity: 0 !important;
+}
+
+/* Show when cursor is over the toolbar area */
+#navigator-toolbox:hover > #PersonalToolbar {
+  transition-delay: 100ms !important;
+  transform: rotateX(0) !important;
+}
+
+#navigator-toolbox:hover
+  #PlacesToolbarItems
+  > .bookmark-item
+  .toolbarbutton-icon {
+  transition-delay: 100ms !important;
+  opacity: 1 !important;
+}
+
+#PlacesToolbarItems > .bookmark-item .toolbarbutton-text {
+  transition: opacity 100ms linear 450ms !important;
+  opacity: 0 !important;
+}
+
+#navigator-toolbox:hover
+  #PlacesToolbarItems
+  > .bookmark-item
+  .toolbarbutton-text {
+  transition-delay: 100ms !important;
+  opacity: 1 !important;
+}
+
+/* Fix the white line above the bookmarks bar when it's empty */
+#personal-toolbar-empty {
+  padding: 2px !important;
+}
