@@ -1,0 +1,32 @@
+@-moz-document url("about:blank"), url("about:newtab"), url("about:home") {
+  html,
+  body {
+    background-color: #131313 !important;
+  }
+  .search-handoff-button {
+    border-radius: 12px !important;
+    border-width: 2px !important;
+    border-color: #181818 !important;
+    background-size: 0px !important;
+    background-color: #222222 !important;
+    padding-inline-start: 10px !important;
+    padding-inline-end: 10px !important;
+  }
+  .search-wrapper input {
+    background-color: #222222 !important;
+    border-radius: 0px !important;
+    background-image: none !important;
+    background-size: none !important;
+    text-align: center !important;
+    font-size: 17px !important;
+    padding-inline-start: 10px !important;
+    padding-inline-end: 10px !important;
+  }
+}
+
+@-moz-document url(moz-extension://e97c5884-aa9d-4dff-bb83-c807a65ade72/sidebar/index.html)
+{
+  * {
+    background: #131313 !important;
+  }
+}
